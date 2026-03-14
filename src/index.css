@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #09090b;
+  --bg-secondary: #f4f4f5;
+  --border-color: #e4e4e7;
+  --card-bg: #f9f9fb;
+}
+
+.dark {
+  --bg-primary: #09090b;
+  --text-primary: #f4f4f5;
+  --bg-secondary: #18181b;
+  --border-color: #27272a;
+  --card-bg: #111113;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  @apply antialiased transition-colors duration-300;
+}
+
+/* Ensure the dark class on html also affects the body and everything else */
+html.dark {
+  color-scheme: dark;
+}
